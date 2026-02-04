@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         downloadBtn.addEventListener('click', function() {
             // Method 1: Direct file download (recommended)
             const link = document.createElement('a');
-            link.href = 'https://github.com/nkjai24/github-portfolio-main/blob/main/resume/Nandhakumar%20resume%20for%20job.pdf.pdf'; // Replace with your resume file path
+            link.href = 'https://github.com/nkjai24/My-Professional-Information/blob/main/resume/Nandhakumar%20resume%20for%20job.pdf.pdf'; // Replace with your resume file path
             link.download = 'Nandhakumar J Resume.pdf'; // The name for the downloaded file
             document.body.appendChild(link);
             link.click();
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Alternative method if you want to fetch the file dynamically
 function downloadResumeFromURL() {
-    const resumeURL = 'https://github.com/nkjai24/github-portfolio-main/blob/main/resume/Nandhakumar%20resume%20for%20job.pdf.pdf';
+    const resumeURL = 'https://github.com/nkjai24/My-Professional-Information/blob/main/resume/Nandhakumar%20resume%20for%20job.pdf.pdf';
     
     fetch(resumeURL)
         .then(response => response.blob())
