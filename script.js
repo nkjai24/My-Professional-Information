@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Alternative method if you want to fetch the file dynamically
 function downloadResumeFromURL() {
-    const resumeURL = 'https://github.com/nkjai24/My-Professional-Information/blob/main/resume/Nandhakumar%20resume%20for%20job.pdf.pdf';
+    const resumeURL = 'https://raw.githubusercontent.com/nkjai24/My-Professional-Information/main/resume/Nandhakumar%20resume%20for%20job.pdf.pdf';
     
     fetch(resumeURL)
         .then(response => response.blob())
