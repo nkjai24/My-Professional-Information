@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Teacher Robot - AI Learning Assistant</title>
+    <meta name="description" content="Interactive AI-powered learning assistant with voice features, multilingual support, and step-by-step teaching capabilities." />
+    <meta name="author" content="Smart Teacher Robot" />
+
+    <meta property="og:title" content="Smart Teacher Robot - AI Learning Assistant" />
+    <meta property="og:description" content="Interactive AI-powered learning assistant with voice features, multilingual support, and step-by-step teaching capabilities." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <!-- Smart Teacher Robot UI Styles -->
+    <style>
+      /* Loading screen styles for better UX */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      }
+
+      .loading-robot {
+        width: 80px;
+        height: 80px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        animation: pulse 2s infinite;
+      }
+
+      .loading-robot::before {
+        content: "🤖";
+        font-size: 40px;
+      }
+
+      .loading-text {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .loading-subtitle {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+
+      /* Hide loading screen when React loads */
+      .loaded .loading-screen {
+        display: none;
+      }
+
+      /* Base styles for the app */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+
+      /* Smart Teacher Robot color scheme CSS variables */
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+        --accent-color: #667eea;
+        --text-primary: #333;
+        --text-secondary: #666;
+        --bg-white: #ffffff;
+        --bg-light: #f8f9fa;
+        --border-light: #e9ecef;
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+        --border-radius: 12px;
+        --border-radius-lg: 16px;
+      }
+    </style>
+
+    <!-- Preload key resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Robot icon for favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  </head>
+
+  <body>
+    <!-- Loading screen while React app loads -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-robot"></div>
+      <div class="loading-text">Smart Teacher Robot</div>
+      <div class="loading-subtitle">Loading your AI learning companion...</div>
+    </div>
+
+    <!-- React app root -->
+    <div id="root"></div>
+
+    <!-- Initialize Smart Teacher Robot -->
+    <script>
+      // Global configuration for Smart Teacher Robot
+      window.SmartTeacherConfig = {
+        apiBaseUrl: '/api',
+        voiceEnabled: true,
+        maxFileSize: 50 * 1024 * 1024, // 50MB
+        supportedFileTypes: ['application/pdf'],
+        defaultLanguage: 'en',
+        theme: 'gradient'
+      };
+
+      // Remove loading screen when React app is ready
+      window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          const loadingScreen = document.getElementById('loading-screen');
+          if (loadingScreen) {
+            document.body.classList.add('loaded');
+          }
+        }, 1000);
+      });
+
+      // Voice recognition availability check
+      window.speechRecognitionSupported = 'webkitSpeechRecognition' in window || 'SpeechRecognition' in window;
+      
+      // Text-to-speech availability check
+      window.speechSynthesisSupported = 'speechSynthesis' in window;
+
+      // Service worker registration for offline support (optional)
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {
+            // Service worker registration failed, continue without offline support
+          });
+        });
+      }
+    </script>
+
+    <!-- Main React application -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.log
+users.db
+audio/
+uploads/
+node_modules/
+dist/

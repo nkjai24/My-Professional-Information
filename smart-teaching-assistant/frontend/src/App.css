@@ -1,0 +1,288 @@
+/* src/App.css
+   Base + UI utilities used by the SmartTeacherVoiceUI + Index layout
+   - keeps existing logo rules
+   - adds hero, panels, badges, robot colors, animations and utility classes
+*/
+
+/* -------------------------
+   Original logo / root rules
+   ------------------------- */
+   #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
+  @keyframes logo-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  /* -------------------------
+     Layout container & cards
+     ------------------------- */
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Basic card utility */
+  .card,
+  .Card, /* in case some components use different casing */
+  .app-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(20, 40, 80, 0.04);
+  }
+  
+  /* consistent small card padding */
+  .card .card-content,
+  .CardContent,
+  .card-content {
+    padding: 1rem;
+  }
+  
+  /* -------------------------
+     Hero / Panels / Shadows
+     ------------------------- */
+  .hero-card {
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(16, 78, 140, 0.06);
+  }
+  
+  .shadow-hero { box-shadow: 0 12px 40px rgba(16,78,140,0.06); }
+  .shadow-panel { box-shadow: 0 8px 30px rgba(16,78,140,0.04); border-radius: 12px; }
+  
+  /* avatar shadow */
+  .shadow-avatar { box-shadow: 0 6px 18px rgba(16,78,140,0.08); }
+  
+  /* -------------------------
+     Color tokens for robot theme
+     ------------------------- */
+  :root {
+    --robot-primary: #5b8cff;   /* primary blue */
+    --robot-secondary: #7dd3fc; /* cyan-ish */
+    --bg-start: #f7fbff;
+    --bg-end: #eef7ff;
+    --success: #10b981;
+    --muted: #6b7280;
+    --border: #e6eef8;
+    --card-bg: #ffffff;
+  }
+  
+  /* utility classes */
+  .bg-background { background: linear-gradient(180deg,var(--bg-start),var(--bg-end)); }
+  .text-muted-foreground { color: var(--muted); }
+  .border-border { border-color: var(--border); }
+  .bg-card { background: var(--card-bg); }
+  
+  /* robot color helpers */
+  .text-robot-primary { color: var(--robot-primary); }
+  .bg-robot-primary { background-color: var(--robot-primary); }
+  .bg-robot-primary-10 { background-color: rgba(91,140,255,0.08); }
+  
+  /* gradient used on mic button etc. */
+  .bg-robot-gradient {
+    background: linear-gradient(135deg, var(--robot-primary), var(--robot-secondary));
+    color: white;
+  }
+  
+  /* success helpers */
+  .border-success-30 { border-color: rgba(16,185,129,0.3); }
+  .bg-success-5 { background-color: rgba(16,185,129,0.05); }
+  
+  /* -------------------------
+     Badges
+     ------------------------- */
+  .badge,
+  .Badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    line-height: 1;
+    vertical-align: middle;
+    background: #f3f4f6;
+    color: #111827;
+  }
+  
+  .badge.default,
+  .Badge--default { background: var(--robot-primary); color: white; box-shadow: 0 6px 18px rgba(91,140,255,0.08); }
+  .badge.secondary { background: #f1f5f9; color: #0f172a; }
+  .badge.outline { background: transparent; border: 1px solid var(--border); color: #111827; }
+  
+  /* small pulse/glow used when speaking */
+  .animate-pulse-glow {
+    box-shadow: 0 0 0 0 rgba(91,140,255,0.35);
+    animation: pulseGlow 1500ms infinite;
+  }
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(91,140,255,0.35); transform: translateY(0); }
+    50% { box-shadow: 0 0 18px 6px rgba(91,140,255,0.08); transform: translateY(-1px); }
+    100% { box-shadow: 0 0 0 0 rgba(91,140,255,0.0); transform: translateY(0); }
+  }
+  
+  /* -------------------------
+     Buttons & inputs (light styling to match components)
+     ------------------------- */
+  button, .btn {
+    font-family: inherit;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+  }
+  
+  button:disabled, .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  
+  /* primary voice gradient button */
+  .btn.voice {
+    background: linear-gradient(135deg, var(--robot-primary), var(--robot-secondary));
+    color: white;
+  }
+  
+  /* destructive */
+  .btn.destructive,
+  button.destructive { background: #ef4444; color: white; }
+  
+  /* outline */
+  .btn.outline { background: transparent; border: 1px solid var(--border); }
+  
+  /* icon button */
+  .btn.icon { padding: 0.4rem; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; }
+  
+  /* mic large circular */
+  .mic-button {
+    border-radius: 9999px;
+    width: 5rem;
+    height: 5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+  
+  /* -------------------------
+     Robot avatar animations
+     ------------------------- */
+  @keyframes robotSpeak {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-3px) scaleY(1.02); }
+    100% { transform: translateY(0); }
+  }
+  .animate-robot-speak { animation: robotSpeak 600ms infinite; }
+  
+  /* listening animation */
+  @keyframes listeningPulse {
+    0% { box-shadow: 0 0 0 0 rgba(91,140,255,0.15); }
+    70% { box-shadow: 0 0 18px 6px rgba(91,140,255,0.06); }
+    100% { box-shadow: 0 0 0 0 rgba(91,140,255,0.0); }
+  }
+  .animate-listening { animation: listeningPulse 1400ms infinite; }
+  
+  /* -------------------------
+     Lesson chunk styles
+     ------------------------- */
+  .chunk {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #ffffff;
+    transition: all .18s ease;
+  }
+  
+  .chunk.current {
+    border-color: rgba(91,140,255,0.35);
+    background: rgba(91,140,255,0.05);
+    box-shadow: 0 8px 30px rgba(91,140,255,0.06);
+  }
+  
+  .chunk.completed {
+    border-color: rgba(16,185,129,0.25);
+    background: rgba(16,185,129,0.03);
+  }
+  
+  /* -------------------------
+     Utility text sizes & spacing
+     ------------------------- */
+  .text-xs { font-size: 0.75rem; }
+  .text-sm { font-size: 0.9rem; }
+  .text-lg { font-size: 1.125rem; }
+  .font-semibold { font-weight: 600; }
+  .font-extrabold { font-weight: 800; }
+  .leading-tight { line-height: 1.05; }
+  .mb-2 { margin-bottom: 0.5rem; }
+  .mb-3 { margin-bottom: 0.75rem; }
+  .mb-4 { margin-bottom: 1rem; }
+  .mt-6 { margin-top: 1.5rem; }
+  
+  /* muted foreground (used widely) */
+  .text-muted-foreground { color: var(--muted); }
+  
+  /* small pill */
+  .pill {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: #fff7ed;
+    color: #92400e;
+    font-size: 0.75rem;
+  }
+  
+  /* -------------------------
+     Borders, background helpers
+     ------------------------- */
+  .border-2 { border-width: 2px; }
+  .border-dashed { border-style: dashed; }
+  .bg-card { background: #fff; }
+  
+  /* -------------------------
+     Responsive & layout helpers
+     ------------------------- */
+  @media (min-width: 1024px) {
+    .lg\\:grid-cols-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  }
+  
+  @media (max-width: 768px) {
+    .container { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .hero-card { padding: 1rem; }
+    .text-4xl { font-size: 1.75rem; }
+  }
+  
+  /* -------------------------
+     Small helpers for accessibility
+     ------------------------- */
+  .visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
+  
+  /* -------------------------
+     Legacy classes kept for backward compatibility
+     ------------------------- */
+  .card { padding: 2em; }
+  .read-the-docs { color: #888; }
+  
