@@ -4,7 +4,6 @@ uvicorn==0.24.0
 python-multipart==0.0.6
 pydantic==2.5.0
 pydantic-settings==2.0.3
-Pillow==9.5.0
 
 # Document processing
 PyPDF2==3.0.1
