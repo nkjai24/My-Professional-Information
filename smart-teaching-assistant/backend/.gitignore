@@ -10,3 +10,4 @@ audio/
 uploads/
 node_modules/
 dist/
+.vercel

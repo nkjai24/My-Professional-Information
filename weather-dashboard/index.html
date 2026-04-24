@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Climate Weather Dashboard</title>
+    <meta
+      name="description"
+      content="Real-time weather dashboard powered by federated green AI principles"
+    />
+
+    <!-- Open Graph tags for sharing -->
+    <meta property="og:title" content="Green Climate Weather Dashboard" />
+    <meta
+      property="og:description"
+      content="Real-time weather dashboard powered by federated green AI principles"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- ✅ CSP (dev quick fix: allow Google Fonts) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        img-src 'self' data: https://source.unsplash.com https://images.unsplash.com https://upload.wikimedia.org https://commons.wikimedia.org https://openweathermap.org;
+        connect-src 'self' https://api.openweathermap.org;
+        script-src 'self';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com data:;
+      "
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Disable favicon requests -->
+    <link rel="icon" href="data:," />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
