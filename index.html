@@ -255,30 +255,48 @@
 
                 <div class="project-card reveal-up" style="--sd:0.15s">
                     <div class="project-overlay">
-                        <a href="#" class="project-link-btn"><i data-lucide="external-link"></i></a>
+                        <a href="https://my-professional-information-o73k.vercel.app/" target="_blank" class="project-link-btn">
+                            <i data-lucide="external-link"></i>
+                        </a>
                     </div>
                     <div class="project-content">
                         <span class="project-number">02</span>
-                        <h3 class="project-title">React Dashboard App</h3>
-                        <p class="project-desc">An interactive web dashboard built with React.js featuring real-time
-                            data rendering, component-based architecture, and responsive layouts.</p>
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <p class="project-desc">React-based weather application that displays real-time weather data
+                            with a modern UI and API integration.</p>
                         <div class="project-tech">
-                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span>
+                            <span>React</span><span>Typescript</span><span>Vite</span><span>API</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card reveal-up" style="--sd:0.3s">
                     <div class="project-overlay">
-                        <a href="#" class="project-link-btn"><i data-lucide="external-link"></i></a>
+                        <a href="#" class="project-link-btn">WIP<i data-lucide="external-link"></i></a>
                     </div>
                     <div class="project-content">
                         <span class="project-number">03</span>
-                        <h3 class="project-title">Python Web Scraper</h3>
-                        <p class="project-desc">A Python-based web scraping tool that extracts and processes data from
-                            websites, with a clean frontend interface for displaying results.</p>
+                        <h3 class="project-title">Shri Meenatchi Mess Website</h3>
+                        <p class="project-desc">Work in Progress - Currently building a full-stack restaurant website with React frontend and FastAPI backend,
+                            featuring dynamic content management and responsive design.</p>
                         <div class="project-tech">
-                            <span>Python</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+                            <span>React</span><span>Typescript</span><span>Tailwind CSS</span><span>FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card reveal-up" style="--sd:0.3s">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link-btn">WIP<i data-lucide="external-link"></i></a>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-number">03</span>
+                        <h3 class="project-title">Study Hub Website</h3>
+                        <p class="project-desc">Work in Progress - Building a full-stack, invite-only study platform with a React and TypeScript frontend powered by Supabase. 
+                            The system includes secure authentication, group-based access (school/college), real-time study rooms with presence tracking, 
+                            and a dynamic exam engine with performance analytics. Focused on scalability, realtime interaction, and modern UI/UX.</p>
+                        <div class="project-tech">
+                            <span>React</span><span>Typescript</span><span>FramerMotion</span><span>Supabase</span><span>PostgreSQL</span>
                         </div>
                     </div>
                 </div>
@@ -294,9 +312,12 @@
                 <span class="section-label">05 — Certificates</span>
                 <h2 class="section-title">Achievements</h2>
             </div>
-            <div class="certs-grid">
-
-                <div class="cert-card reveal-up" style="--sd:0s">
+    
+            <div class="cert-container">
+    
+                <!-- CERT 1 -->
+                <div class="cert-card reveal-up" style="--sd:0s"
+                    onclick="openCert('techforge.jpg')">
                     <div class="cert-icon"><i data-lucide="award"></i></div>
                     <div class="cert-content">
                         <h3>TechForge 3 Months Intern</h3>
@@ -304,8 +325,10 @@
                     </div>
                     <div class="cert-badge">Verified</div>
                 </div>
-
-                <div class="cert-card reveal-up" style="--sd:0.15s">
+    
+                <!-- CERT 2 -->
+                <div class="cert-card reveal-up" style="--sd:0.15s"
+                    onclick="openCert('google-it.jpg')">
                     <div class="cert-icon"><i data-lucide="award"></i></div>
                     <div class="cert-content">
                         <h3>Google IT Support</h3>
@@ -313,8 +336,10 @@
                     </div>
                     <div class="cert-badge">Google</div>
                 </div>
-
-                <div class="cert-card reveal-up" style="--sd:0.3s">
+    
+                <!-- CERT 3 -->
+                <div class="cert-card reveal-up" style="--sd:0.3s"
+                    onclick="openCert('google-python.jpg')">
                     <div class="cert-icon"><i data-lucide="award"></i></div>
                     <div class="cert-content">
                         <h3>Google IT Automation with Python</h3>
@@ -322,10 +347,16 @@
                     </div>
                     <div class="cert-badge">Google</div>
                 </div>
-
+    
             </div>
         </div>
     </section>
+    
+    <!-- MODAL (ADD THIS BELOW YOUR SECTION, DON'T CHANGE UI ABOVE) -->
+    <div id="certModal" class="cert-modal">
+        <span class="cert-close" onclick="closeCert()">&times;</span>
+        <img id="certImage" class="cert-modal-content">
+    </div>
 
     <!-- ======== EDUCATION ======== -->
     <section class="section section-alt" id="education">

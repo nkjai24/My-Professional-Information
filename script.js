@@ -269,3 +269,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+function openCert(imgSrc) {
+    const modal = document.getElementById("certModal");
+    const image = document.getElementById("certImage");
+
+    if (modal && image) {
+        modal.style.display = "block";
+        image.src = imgSrc;
+    }
+}
+
+function closeCert() {
+    const modal = document.getElementById("certModal");
+    if (modal) modal.style.display = "none";
+}
+
+/* Close when clicking outside */
+window.addEventListener("click", function (e) {
+    const modal = document.getElementById("certModal");
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
